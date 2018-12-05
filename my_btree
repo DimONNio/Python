@@ -1,0 +1,32 @@
+class MyBTree(object):
+    class Item(object):
+        def __init__(self, data: int):
+            self.left = None
+            self.right = None
+            self.data = data
+
+    def __init__(self):
+        self.root = None
+
+    def is_empty(self):
+        return self.root is None
+
+    def insert(self, data):
+        item = MyBTree.Item(data)
+        if not self.root:
+            self.root = item
+        else:
+            current_item = self.root
+            while True:
+                if current_item.data <= item.data:
+                    if current_item.right is None:
+                        current_item.right = item
+                        return
+                    else:
+                        current_item = current_item.right
+                        continue
+
+
+
+    def print(self):
+        pass
